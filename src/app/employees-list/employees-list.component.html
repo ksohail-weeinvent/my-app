@@ -1,0 +1,45 @@
+<!--<button type="button" (click)="router.navigate(['/orders']);"><span>Orders</span></button>-->
+<a [routerLink]="[{ outlets: {primary: [], other: ['products']} }]">Products</a>
+<a [routerLink]="[{ outlets: {primary: ['products'], other: ['orders']} }]">Orders</a>
+
+<h2>Employees Listing</h2>
+
+<table #dataTable class="table" style="width:100%">
+    <thead>
+        <tr>
+            <td><b>Name</b></td>
+            <td><b>City</b></td>
+            <td><b>Genders</b></td>
+            <td><b>Department</b></td>
+            <td><b>status</b></td>
+            <td><b>Action</b></td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empList.employees; let i = index">
+            <td >{{emp.name}}</td>
+            <td>{{emp.city}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.department}}</td>
+            <td myDirective [index] = "i">{{emp.status}}</td>
+            <td><button type="button" (click)="selectedEmp = emp">Detail</button></td>
+            
+        </tr>
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><b>Name</b></td>
+            <td><b>City</b></td>
+            <td><b>Gender</b></td>
+            <td><b>Department</b></td>
+            <td><b>Status</b></td>
+            <td><b>Action</b></td>
+            
+            
+        </tr>
+    </tfoot>
+</table>
+<p>Recieve data from child: {{dataFromChild}}</p>
+<app-employee-detail [employee]="selectedEmp" (childEmit)="receiveDataFromChild($event)"></app-employee-detail>

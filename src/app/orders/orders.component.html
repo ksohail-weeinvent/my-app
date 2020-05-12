@@ -1,0 +1,25 @@
+
+
+<p><!--<button class="btn" type="button" (click)="router.navigate(['/']);"><span>Home</span></button>--></p>
+<p>
+  orders works!
+</p>
+<div class="container">
+    <p>
+    orders works!
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>{{ message }}</h4>
+            <button class="btn btn-success" (click)="subscribe()">Start</button>
+            &nbsp;
+            <button class="btn btn-danger" (click)="subscription1.unsubscribe()">Stop</button>
+        </div>
+
+        <div class="col-md-6">
+            <h4>{{ message2 }}</h4>
+            <button class="btn btn-success" (click)="subscribe2()">Start Also</button>
+        </div>
+    </div>
+</div>
